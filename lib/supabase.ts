@@ -15,7 +15,7 @@ export type Recipe = {
   prep_time: number
   cook_time: number
   servings: number
-  difficulty: 'Easy' | 'Medium' | 'Hard'
+  difficulty: string
   image_url?: string
   created_at: string
   updated_at: string
