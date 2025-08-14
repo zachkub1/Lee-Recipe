@@ -20,7 +20,7 @@ export default function AddRecipeForm({ isOpen, onClose, onSubmit }: AddRecipeFo
     prep_time: 0,
     cook_time: 0,
     servings: 1,
-    difficulty: 'Easy' as const,
+    difficulty: 'Easy' as 'Easy' | 'Medium' | 'Hard',
     image_url: ''
   })
 
@@ -153,7 +153,7 @@ export default function AddRecipeForm({ isOpen, onClose, onSubmit }: AddRecipeFo
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-pink-700 mb-2">
                 Prep Time (min)
@@ -181,7 +181,9 @@ export default function AddRecipeForm({ isOpen, onClose, onSubmit }: AddRecipeFo
                 className="w-full px-3 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white"
               />
             </div>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-pink-700 mb-2">
                 Servings
@@ -195,22 +197,22 @@ export default function AddRecipeForm({ isOpen, onClose, onSubmit }: AddRecipeFo
                 className="w-full px-3 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white"
               />
             </div>
-          </div>
 
-          <div>
-            <label className="block text-sm font-medium text-pink-700 mb-2">
-              Difficulty
-            </label>
-            <select
-              required
-              value={formData.difficulty}
-              onChange={(e) => setFormData(prev => ({ ...prev, difficulty: e.target.value as 'Easy' | 'Medium' | 'Hard' }))}
-              className="w-full px-3 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white"
-            >
-              <option value="Easy">Easy</option>
-              <option value="Medium">Medium</option>
-              <option value="Hard">Hard</option>
-            </select>
+            <div>
+              <label className="block text-sm font-medium text-pink-700 mb-2">
+                Difficulty
+              </label>
+              <select
+                required
+                value={formData.difficulty}
+                onChange={(e) => setFormData(prev => ({ ...prev, difficulty: e.target.value as 'Easy' | 'Medium' | 'Hard' }))}
+                className="w-full px-3 py-2 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent bg-white"
+              >
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
           </div>
 
           <div>
